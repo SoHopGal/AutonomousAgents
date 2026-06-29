@@ -1,0 +1,30 @@
+Scenario   Metric          Fixed      Adaptive  
+--------------------------------------------------
+VS-01      Avg Travel      25.54      20.67     
+           Avg Wait        11.73      5.70      
+           Collisions      0          0         
+
+VS-02      Avg Travel      35.77      27.17     
+           Avg Wait        19.91      12.70     
+           Collisions      0          0         
+
+VS-03      Avg Travel      27.91      32.86     
+           Avg Wait        14.27      15.58     
+           Collisions      0          0         
+
+VS-11      Avg Travel      31.36      31.48     
+           Avg Wait        16.71      17.50     
+           Collisions      0          0         
+
+VS-12      Avg Travel      32.04      32.57     
+           Avg Wait        17.40      18.73     
+           Collisions      2          0         
+
+VS-13      Avg Travel      30.96      36.33     
+           Avg Wait        17.21      19.17     
+           Collisions      0          0         
+
+VS-14      Avg Travel      30.54      33.32     
+           Avg Wait        15.16      18.87     
+           Collisions      0          0         
+
