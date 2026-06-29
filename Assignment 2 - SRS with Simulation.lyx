@@ -1,0 +1,642 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "FreeSerif"
+\font_sans "default" "FreeSans"
+\font_typewriter "default" "FreeMono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+Gal Argov Sofer
+\begin_inset Newline newline
+\end_inset
+
+Weam Mezalbet
+\end_layout
+
+\begin_layout Center Header
+Multi-Agents Systems Engineering - 35020104
+\begin_inset Newline newline
+\end_inset
+
+Graduate Program - M.Sc.
+ Software Engineering
+\begin_inset Newline newline
+\end_inset
+
+Shenkar
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Info
+type  "moddate"
+arg   "loclong"
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Assignment 2:
+ Software Requirements Specification
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Project Overview
+\end_layout
+
+\begin_layout Standard
+The project focuses on a multi-agent system where autonomous vehicles work together to optimize urban mobility and traffic coordination,
+ using smart intersections.
+ The goal is to improve traffic flow,
+ reduce congestion,
+ and enhance safety,
+ with all autonomous vehicles working toward a shared objective:
+ reaching their destination in the shortest time possible,
+ while adhering to traffic laws and ensuring safety of all vehicles and pedestrians.
+\end_layout
+
+\begin_layout Subsection
+High-Level System Goals
+\end_layout
+
+\begin_layout Itemize
+Coordination among autonomous vehicles to avoid congestion and delays,
+ while taking into account that not all entities are autonomous agents.
+\end_layout
+
+\begin_layout Itemize
+Implementation of optimal "wait and go" strategies at intersections and during lane merges.
+\end_layout
+
+\begin_layout Itemize
+Application of Game Theory to find the best strategies for decision-making.
+\end_layout
+
+\begin_layout Itemize
+Real-time decision-making in extreme circumstances,
+ such as system failures,
+ emergencies,
+ accidents,
+ or bad weather.
+\end_layout
+
+\begin_layout Itemize
+Prioritizing emergency vehicles with minimal cost to civilian vehicles.
+\end_layout
+
+\begin_layout Subsection
+Scope
+\end_layout
+
+\begin_layout Itemize
+The system operates in a virtual or simulated smart urban environment,
+ where vehicles and smart intersections work together to manage traffic flow.
+ The focus is on the behavior of autonomous vehicles and interactions at smart intersections rather than the physical aspects of the vehicles themselves.
+\end_layout
+
+\begin_layout Itemize
+The project will not cover aspects like vehicle hardware but will focus on agent behavior and coordination.
+\end_layout
+
+\begin_layout Itemize
+The project will take into account the existence of human driven vehicles and of pedestrians,
+ including their ability to behave unexpectedly,
+ but the system metrics will exclude accidents that are caused solely by human behavior.
+\end_layout
+
+\begin_layout Itemize
+The project will not cover any reports to the authorities regarding traffic law violations.
+\end_layout
+
+\begin_layout Section
+Environment Specification
+\end_layout
+
+\begin_layout Subsection
+Environment Classification
+\end_layout
+
+\begin_layout Standard
+The environment is urban and complex,
+ consisting of autonomous vehicles,
+ smart intersections,
+ traffic signals,
+ and road signs.
+ Vehicles interact with each other and the infrastructure (smart intersections) to optimize traffic flow.
+\end_layout
+
+\begin_layout Subsection
+Physical/Logical Boundaries
+\end_layout
+
+\begin_layout Standard
+The system operates in a simulated urban environment,
+ where autonomous vehicles interact with smart intersections and each other.
+ The focus is on traffic management rather than physical road layouts.
+ The environment will also consider extreme weather conditions and emergency situations,
+ as well as uncontrollable pedestrians and human driven vehicles.
+\end_layout
+
+\begin_layout Subsection
+Important Features
+\end_layout
+
+\begin_layout Standard
+The environment includes urban traffic,
+ traffic signs,
+ smart traffic signals,
+ and real-time interactions between autonomous vehicles and intersections.
+ It is designed to handle variable traffic conditions and optimize the flow while maintaining safety for all entities involved.
+\end_layout
+
+\begin_layout Subsection
+Non-agent entities
+\end_layout
+
+\begin_layout Standard
+The environment includes pedestrians and human driven vehicles which are non autonomous,
+ we have to consider them as a dynamic part of the environment,
+ as they cannot be communicated with in the same way autonomous vehicles can.
+ Pedestrians and human driven vehicles are not agents in this project,
+ they are parts of the environment which are not completely predictable.
+\end_layout
+
+\begin_layout Subsection
+Emergency vehicles
+\end_layout
+
+\begin_layout Standard
+The environment includes emergency vehicles that must be prioritized.
+\end_layout
+
+\begin_layout Section
+Agent Specification
+\end_layout
+
+\begin_layout Subsection
+Agent Types
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Autonomous
+\begin_inset space ~
+\end_inset
+
+Vehicle:
+ Each autonomous vehicle is an autonomous agent.
+ Each vehicle is responsible for navigating through the urban environment,
+ making decisions on when to speed up,
+ slow down,
+ stop,
+ and when to interact with other autonomous vehicles at intersections.
+ It must also decide when to interact with pedestrians and human driven vehicles using classic signaling,
+ hazard lights and honking in cases of emergency.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Smart
+\begin_inset space ~
+\end_inset
+
+Intersection:
+ Each intersection is also an agent that manages the flow of traffic at the intersection,
+ ensuring that vehicles and pedestrians pass through safely and efficiently according to traffic rules,
+ and that emergency vehicles are prioritized.
+\end_layout
+
+\begin_layout Subsection
+Agent Goals
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Autonomous
+\begin_inset space ~
+\end_inset
+
+Vehicle:
+ The vehicle’s goal is to reach its destination in the shortest time possible while maintaining safety and adhering to traffic laws.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Smart
+\begin_inset space ~
+\end_inset
+
+Intersection:
+ The intersection’s goal is to optimize traffic flow by minimizing wait times and ensuring the safe passage of vehicles and pedestrians.
+\end_layout
+
+\begin_layout Subsection
+Perception and Action Capabilities
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Autonomous
+\begin_inset space ~
+\end_inset
+
+Vehicle:
+ Each vehicle senses its environment,
+ including traffic conditions,
+ road signs,
+ traffic lights,
+ and the state of pedestrians and other vehicles,
+ autonomous and human driven.
+ It makes decisions based on this information.
+ In case of a visible vehicle that is not recognized as autonomous,
+ positioning is very important as human drivers' vision is more limited.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Smart
+\begin_inset space ~
+\end_inset
+
+Intersection:
+ The intersection perceives traffic conditions and optimizes signal timings to improve traffic flow and reduce congestion.
+ It takes into account that not all vehicles are autonomous,
+ and it cannot rely only on radio signals from the autonomous vehicle for information.
+ It must include sensors that can detect pedestrians and human driven vehicles as well.
+\end_layout
+
+\begin_layout Section
+Functional Requirements
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Autonomous
+\begin_inset space ~
+\end_inset
+
+Vehicle
+\begin_inset space ~
+\end_inset
+
+Requirements:
+ Each vehicle must be able to perceive the environment (traffic conditions,
+ road signs,
+ signals) and make decisions accordingly.
+ It must react to changes in traffic flow,
+ road conditions,
+ and other vehicles.
+ Each should signal to the intersection control system using radio waves and receive information from it the same way.
+ It must be aware of the existence of all surrounding vehicles,
+ autonomous and human driven.
+ Any vehicle that does not signal being autonomous is considered human driven and is treated accordingly (blind spots,
+ possibility of unexpected behaviors,
+ inability to communicate using radio waves,
+ etc.).
+ It must also be aware of pedestrians and take them into consideration,
+ including their limitations and abilities.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Smart
+\begin_inset space ~
+\end_inset
+
+Intersection
+\begin_inset space ~
+\end_inset
+
+Requirements:
+ Each smart intersection must optimize traffic flow by adjusting signal timings,
+ managing vehicle passage,
+ and ensuring safe and efficient passage through the intersection.
+ Each must communicate with the smart vehicles using radio waves and must be aware of smart and human driven vehicles.
+ It must also let pedestrians pass in a reasonable time and prioritize emergency vehicles.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+System-Level
+\begin_inset space ~
+\end_inset
+
+Requirements:
+ The system must work collaboratively,
+ with all agents coordinating to reduce delays and prevent accidents.
+ Decision-making must adhere to all traffic laws and optimize traffic flow.
+ It must take all non-agent entities into account as well.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Real-Time
+\begin_inset space ~
+\end_inset
+
+Decision
+\begin_inset space ~
+\end_inset
+
+Making:
+ The system must be able to make real-time decisions in extreme situations,
+ such as accidents,
+ sudden weather changes,
+ or technical failures.
+\end_layout
+
+\begin_layout Section
+Simulation & Visualization Requirements
+\end_layout
+
+\begin_layout Subsection
+Real-Time Traffic Display
+\end_layout
+
+\begin_layout Standard
+The simulation must show vehicles in real-time,
+ displaying their movements,
+ decisions,
+ and interactions with other vehicles and intersections.
+ It must also show pedestrians and human driven vehicles that might have unpredictable behavior.
+\end_layout
+
+\begin_layout Subsection
+Extreme Situation Simulation
+\end_layout
+
+\begin_layout Standard
+The simulation should also show how the system handles extreme conditions,
+ such as bad weather or unexpected system failures.
+\end_layout
+
+\begin_layout Subsection
+Strategy Tracking
+\end_layout
+
+\begin_layout Standard
+The simulation must demonstrate how “wait and go” strategies are applied in real-time at intersections and during lane merges.
+\end_layout
+
+\begin_layout Subsection
+Non-agent entities
+\end_layout
+
+\begin_layout Standard
+The simulation must include pedestrians and human driven vehicles,
+ and be aware of their limited ability to communicate and their possibly unexpected behavior.
+ They must be shown and be able to behave in ways the system can't fully predict.
+\end_layout
+
+\begin_layout Subsection
+Emergency vehicles
+\end_layout
+
+\begin_layout Standard
+The simulation should include emergency vehicles that must be prioritized over civilian vehicles.
+\end_layout
+
+\begin_layout Section
+Interaction Models
+\end_layout
+
+\begin_layout Itemize
+Voting Strategies:
+ At intersections or during lane merges,
+ vehicles will use voting strategies to determine the order of passage based on priority or rules defined by the intersection.
+ 
+\end_layout
+
+\begin_layout Itemize
+Traffic Rules:
+ The system must adhere to predefined traffic rules,
+ including stop signs,
+ traffic lights,
+ and other legal requirements.
+ 
+\end_layout
+
+\begin_layout Itemize
+Cooperation Between Agents:
+ Autonomous vehicles will cooperate to optimize traffic flow,
+ avoid congestion,
+ and reduce delays.
+ For example,
+ vehicles might communicate with each other to ensure smooth transitions at busy intersections.
+\end_layout
+
+\begin_layout Itemize
+The interactions with non-agent entities is extremely limited and must follow a strict set of rules defined by the traffic laws.
+\end_layout
+
+\begin_layout Itemize
+Any emergency vehicle on duty outvote pedestrian vehicles at any time.
+\end_layout
+
+\begin_layout Section
+Utility & Success Metrics
+\end_layout
+
+\begin_layout Subsection
+Success Definition
+\end_layout
+
+\begin_layout Itemize
+Success is defined as the ability to reach a destination in 110% of the time it would take a human driver who fully obeys the law,
+ at most,
+ while maintaining safety and without violating any traffic laws or causing accidents.
+ Any traffic law violation is considered an unequivocal failure.
+\end_layout
+
+\begin_layout Itemize
+The metrics will specifically exclude any hazards or accidents caused solely by human behavior.
+\end_layout
+
+\begin_layout Itemize
+The metrics will take into account emergency vehicles prioritizing,
+ which may slow down civilian vehicles.
+ With that said,
+ this delay should also be minimized.
+\end_layout
+
+\begin_layout Subsection
+Utility Function
+\end_layout
+
+\begin_layout Itemize
+The system should optimize for the shortest travel time,
+ minimizing delays and ensuring safety.
+\end_layout
+
+\begin_layout Itemize
+The goal is to maximize the overall efficiency of traffic flow while adhering to traffic regulations.
+ It should consider the possible roads' congestion and be able to make decisions based on all available knowledge.
+\end_layout
+
+\begin_layout Itemize
+It should try to predict the behavior of human driven vehicles and of pedestrians,
+ while considering their ability to behave unexpectedly.
+\end_layout
+
+\begin_layout Section
+Validation Scenarios
+\end_layout
+
+\begin_layout Itemize
+Scenario 1:
+ Vehicles approach a smart intersection with multiple vehicles arriving at the same time,
+ some of them are human driven.
+ The system must ensure that the autonomous vehicles pass through efficiently and reach their destination in the defined success time (Subsection 7.1).
+\end_layout
+
+\begin_layout Itemize
+Scenario 2:
+ The system must handle extreme weather conditions (e.g.,
+ heavy rain or fog).
+ The vehicles must continue to operate safely and efficiently despite reduced visibility or road conditions.
+\end_layout
+
+\begin_layout Itemize
+Scenario 3:
+ A scenario with heavy traffic congestion where vehicles must merge into a single lane.
+ The system must ensure smooth merging and minimize traffic jams,
+ while also adhering to traffic rules.
+\end_layout
+
+\begin_layout Itemize
+Scenario 4:
+ Human driven vehicles and pedestrians are behaving unexpectedly and the system must be aware and careful.
+\end_layout
+
+\begin_layout Itemize
+Scenario 5:
+ The traffic is flowing and the agents must still obey the law,
+ the vehicles can't exceed the speed limit even if no one is around.
+\end_layout
+
+\end_body
+\end_document
