@@ -822,11 +822,15 @@ def run_scenario_headless(scenario_id, light_mode='fixed', seed=None):
     }
 
 
-def run_all_scenarios(light_mode='fixed'):
+def run_all_scenarios(light_mode='fixed', seed=None):
     results = []
+    
+    if seed is not None:
+        np.random.seed(seed)
+        
     for sid in SCENARIOS:
         print(f'Running {sid} ({SCENARIOS[sid]["label"]}) [{light_mode}] ...')
-        results.append(run_scenario_headless(sid, light_mode=light_mode))
+        results.append(run_scenario_headless(sid, light_mode=light_mode, seed=np.random.randint(0, 1_000_000)))
     return results
 
 
