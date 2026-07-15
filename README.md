@@ -118,7 +118,6 @@ simulation/
 
 The simulation produces:
 - CSV files containing generated experiment results
-- JSON files containing generated scenario data and metrics
 - Visualization plots for performance analysis
 
 
