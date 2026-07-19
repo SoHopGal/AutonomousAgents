@@ -126,4 +126,4 @@ https://www.youtube.com/watch?v=MXEq_WkcRFM
 ## Academic Project
 This simulation was developed as part of the course project for the Autonomous Agents course in the M.Sc. Software Engineering program.
 
-![Simulator](output/plot/fig1.1_Simulation Environment Overview.png)
+![Simulator](outputs/plot/fig1.1_Simulation Environment Overview.png)
