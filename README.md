@@ -9,7 +9,7 @@ Python • Agent-Based Simulation • Traffic Coordination
 This directory contains the simulation environment developed for the Autonomous Traffic Coordination project.
 
 The simulation models an urban traffic network with autonomous vehicles and intelligent intersections. 
-The objective is to evaluate traffic coordination mechanisms and compare fixed and adaptive traffic control strategies under various traffic scenarios.
+The objective is to evaluate reservation-based traffic coordination and compare fixed and adaptive traffic-light control strategies under various traffic scenarios.
 
 The simulator focuses on:
 - Agent-based traffic coordination
@@ -19,6 +19,9 @@ The simulator focuses on:
 - Performance evaluation using traffic metrics
 
 The simulator represents an abstract traffic environment and does not include real vehicle hardware or real-world sensor data.
+
+![Simulator](outputs/plot/fig1.1_SimulationEnvironmentOverview.png)
+
 
 ## Implemented Control Strategies
 ### Fixed Traffic Light Control
@@ -53,16 +56,17 @@ The simulation generates:
 The simulation consists of the following main components:
 - **Vehicle Agent** – Handles vehicle movement, routing, and interaction with intersections.
 - **Intersection Controller** – Manages traffic flow and coordination decisions.
-- **Reservation Manager** – Prevents conflicts in shared intersection zones.
+- **Reservation Manager** – Allocates intersection reservations and prevents conflicts within shared intersection zones.
 - **Traffic Light Controller** – Implements fixed and adaptive traffic control policies.
 
 These components are implemented within the main simulation file (`simulation.py`).
 
+![Architecture](outputs/plot/fig1.2_Reservation-BasedTrafficCoordinationFramework.png)
 
 ## Requirements
 - Python 3.x
 
-Required libraries: 
+Required Python packages:
 - Numpy
 - Matplotlib
 - Pandas
@@ -96,6 +100,8 @@ Results include:
 - Collision analysis
 - Scalability analysis
 
+The adaptive controller provides the greatest benefit under low and moderate traffic demand, while reservation-based coordination remains the primary safety mechanism under heavy congestion.
+
 Detailed experimental results are available in the accompanying project report.
 
 
@@ -120,10 +126,8 @@ The simulation produces:
 - Visualization plots for performance analysis
 
 
-## Video Link
+## Video Demonstration
 https://www.youtube.com/watch?v=MXEq_WkcRFM
 
 ## Academic Project
-This simulation was developed as part of the course project for the Autonomous Agents course in the M.Sc. Software Engineering program.
-
-![Simulator](outputs/plot/fig1.1_SimulationEnvironmentOverview.png)
+This simulation was developed as part of the course project for the Course: Engineering of Autonomous Multi-Agent Systems in M.Sc. Software Engineering program.
